@@ -110,6 +110,25 @@ function renderQuestion() {
   }
 }
 
+const AREA_CLASS = { "STUDIO": "studio", "DO-JO": "dojo", "AQUA": "aqua", "ラウンジ": "lounge" };
+
+function renderRoutineStep(step, index) {
+  const areaClass = AREA_CLASS[step.area] || "studio";
+  return `
+    <li class="routine-item">
+      <span class="routine-step" aria-hidden="true">${index + 1}</span>
+      <div class="routine-body">
+        <div class="routine-header">
+          <span class="routine-area area-${areaClass}">${escapeHtml(step.area)}</span>
+          <span class="routine-lesson">${escapeHtml(step.lesson)}</span>
+          ${step.duration ? `<span class="routine-duration">${escapeHtml(step.duration)}</span>` : ""}
+        </div>
+        <p class="routine-note">${escapeHtml(step.note)}</p>
+      </div>
+    </li>
+  `;
+}
+
 function renderResult() {
   const result = diagnose(state.answers);
   const type = result.type;
@@ -132,6 +151,14 @@ function renderResult() {
           <ul class="facility-list">
             ${type.facilities.map((f) => `<li>${escapeHtml(f)}</li>`).join("")}
           </ul>
+        </div>
+
+        <div class="section routine-section">
+          <h3 class="section-title">おすすめルーティン</h3>
+          <p class="routine-subtitle">この3ステップで、あなたらしい一日を</p>
+          <ol class="routine-list">
+            ${type.routine.map((step, i) => renderRoutineStep(step, i)).join("")}
+          </ol>
         </div>
 
         <div class="today-pick">
