@@ -338,6 +338,96 @@ body {
   color: var(--primary);
 }
 
+/* ==== Routine ==== */
+.routine-subtitle {
+  font-size: 15px;
+  color: var(--text-soft);
+  margin-bottom: 22px;
+  font-style: italic;
+  letter-spacing: 0.04em;
+}
+
+.routine-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.routine-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.routine-step {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #FAF7F2;
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.routine-body {
+  flex: 1;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 18px;
+}
+
+.routine-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.routine-area {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  padding: 3px 10px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  font-family: var(--sans);
+}
+
+.area-studio { background: rgba(46, 74, 59, 0.10); color: var(--primary); }
+.area-dojo   { background: rgba(139, 111, 71, 0.12); color: var(--accent); }
+.area-aqua   { background: rgba(52, 120, 175, 0.10); color: #2d6fa3; }
+.area-lounge { background: rgba(160, 130, 60, 0.10); color: #8a6e1a; }
+
+.routine-lesson {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  font-family: var(--serif);
+  letter-spacing: 0.02em;
+}
+
+.routine-duration {
+  font-size: 14px;
+  color: var(--text-soft);
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.routine-note {
+  font-size: 15px;
+  color: var(--text-soft);
+  line-height: 1.65;
+}
+
 /* ==== Responsive ==== */
 @media (max-width: 600px) {
   body { font-size: 17px; }
@@ -356,6 +446,10 @@ body {
   .type-description { font-size: 16px; }
   .facility-list li, .today-list li { font-size: 17px; }
   .today-pick { padding: 22px 22px; }
+
+  .routine-lesson { font-size: 17px; }
+  .routine-body { padding: 12px 14px; }
+  .routine-duration { margin-left: 0; }
 }
 
 /* ==== Print (スタッフ提示用) ==== */
