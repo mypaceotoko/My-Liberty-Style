@@ -116,18 +116,27 @@ function renderQuestion() {
 const AREA_CLASS = { "STUDIO": "studio", "DO-JO": "dojo", "AQUA": "aqua", "ラウンジ": "lounge" };
 
 function renderRoutineStep(step, index) {
-  const areaClass = AREA_CLASS[step.area] || "studio";
   return `
     <li class="routine-item">
       <span class="routine-step" aria-hidden="true">${index + 1}</span>
       <div class="routine-body">
-        <div class="routine-header">
-          <span class="routine-area area-${areaClass}">${escapeHtml(step.area)}</span>
-          <span class="routine-lesson">${escapeHtml(step.lesson)}</span>
-          ${step.duration ? `<span class="routine-duration">${escapeHtml(step.duration)}</span>` : ""}
-        </div>
+        <div class="routine-activity">${escapeHtml(step.activity)}</div>
+        <div class="routine-spec">${escapeHtml(step.spec)}</div>
         <p class="routine-note">${escapeHtml(step.note)}</p>
       </div>
+    </li>
+  `;
+}
+
+function renderProgram(prog) {
+  const areaClass = AREA_CLASS[prog.area] || "studio";
+  return `
+    <li class="program-item">
+      <div class="program-header">
+        <span class="routine-area area-${areaClass}">${escapeHtml(prog.area)}</span>
+        <span class="program-name">${escapeHtml(prog.name)}</span>
+      </div>
+      <p class="program-desc">${escapeHtml(prog.description)}</p>
     </li>
   `;
 }
@@ -145,7 +154,7 @@ function renderResult() {
         <p class="type-description">${escapeHtml(type.description)}</p>
 
         <div class="section">
-          <h3 class="section-title">おすすめの施設・レッスン</h3>
+          <h3 class="section-title">おすすめのレッスン・施設</h3>
           <ul class="facility-list">
             ${type.facilities.map((f) => `<li>${escapeHtml(f)}</li>`).join("")}
           </ul>
@@ -157,6 +166,13 @@ function renderResult() {
           <ol class="routine-list">
             ${type.routine.map((step, i) => renderRoutineStep(step, i)).join("")}
           </ol>
+        </div>
+
+        <div class="section program-section">
+          <h3 class="section-title">あなたにおすすめのプログラム</h3>
+          <ul class="program-list">
+            ${type.programs.map((p) => renderProgram(p)).join("")}
+          </ul>
         </div>
 
         <button class="primary-button" id="restartBtn" type="button">もう一度診断する</button>
