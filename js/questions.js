@@ -59,7 +59,7 @@ const QUESTIONS = [
     options: [
       { label: "テニス",                       scores: { active: 2, social: 2 } },
       { label: "ゴルフレンジ",                 scores: { active: 2, maintenance: 1 } },
-      { label: "ボクシング系レッスン",         scores: { active: 3 } },
+      { label: "ダンス系レッスン",              scores: { social: 2, active: 2 } },
       { label: "プール・アクア系レッスン",     scores: { water: 3, balance: 1 } }
     ]
   },
