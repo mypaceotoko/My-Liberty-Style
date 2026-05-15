@@ -14,9 +14,14 @@ const TYPES = {
       "アクアリラクゼーション"
     ],
     routine: [
-      { lesson: "簡単チェアヨガ",   area: "DO-JO",  duration: "約45分", note: "座ったまま無理なく。体をゆっくりとほぐすところから始めましょう" },
-      { lesson: "リラックスヨガ",   area: "STUDIO", duration: "約60分", note: "深い呼吸とともに、心の緊張を静かにほどいていきます" },
-      { lesson: "アクア＆ウォーク", area: "AQUA",   duration: "約45分", note: "水の温もりに身をゆだね、一日を優しく締めくくる" }
+      { activity: "全身ストレッチ",         spec: "15分",                     note: "首・肩・背中・脚を順番にゆっくりほぐす" },
+      { activity: "ウォーキング",           spec: "20分 / ゆっくりペース",      note: "トレッドミルまたはプールサイドを無理のないペースで" },
+      { activity: "深呼吸・リラクゼーション", spec: "10分",                     note: "横になって全身の力を抜き、深呼吸で整える" }
+    ],
+    programs: [
+      { name: "リラックスヨガ", area: "STUDIO", description: "深い呼吸とゆったりとした動きで、心と体をほぐすヨガクラス" },
+      { name: "簡単チェアヨガ", area: "DO-JO",  description: "椅子に座ったまま行う、無理なく参加できるやさしいヨガ" },
+      { name: "アクア＆ウォーク", area: "AQUA", description: "水中ウォーキングで浮力を活かし、体を優しくほぐす" }
     ]
   },
   active: {
@@ -32,9 +37,14 @@ const TYPES = {
       "ゴルフレンジ"
     ],
     routine: [
-      { lesson: "ボディメイキング60",   area: "STUDIO", duration: "約60分", note: "全身をしっかり動かして、体を目覚めさせる" },
-      { lesson: "GroupFight",          area: "DO-JO",  duration: "約60分", note: "パンチ＆キックで、気持ちよく全力を出し切る" },
-      { lesson: "アクティブストレッチ", area: "STUDIO", duration: "約60分", note: "クールダウンしながら、しなやかな体を仕上げる" }
+      { activity: "有酸素運動",     spec: "30分 / トレッドミル 時速7〜8km",          note: "しっかり汗をかいて心拍数を高める" },
+      { activity: "筋力トレーニング", spec: "スクワット 20回×3セット / 腕立て 15回×3セット", note: "自体重トレーニングで全身の筋力をアップ" },
+      { activity: "クールダウン",    spec: "10分 / 全身ストレッチ",                  note: "使った筋肉をしっかり伸ばして回復を促す" }
+    ],
+    programs: [
+      { name: "ボディメイキング60", area: "STUDIO", description: "全身の筋力と持久力を高める本格的なボディメイクレッスン" },
+      { name: "GroupFight",        area: "DO-JO",  description: "格闘技をベースにした高強度グループエクササイズ" },
+      { name: "アクティブストレッチ", area: "STUDIO", description: "運動後の体をしっかりほぐすダイナミックストレッチ" }
     ]
   },
   social: {
@@ -50,9 +60,14 @@ const TYPES = {
       "ラウンジでの団らん"
     ],
     routine: [
-      { lesson: "ZUMBA®",             area: "STUDIO", duration: "約60分", note: "仲間と一緒に、ラテンのリズムで体を弾ませる" },
-      { lesson: "ボールルームダンス入門", area: "STUDIO", duration: "約60分", note: "ペアで楽しむ、優雅なダンスの時間" },
-      { lesson: "ラウンジでのひととき", area: "ラウンジ", duration: null,   note: "レッスン後は、仲間とゆっくり歓談を" }
+      { activity: "ウォームアップ体操",   spec: "10分",               note: "レッスン前に体を温め、参加準備を整える" },
+      { activity: "グループレッスン参加", spec: "60分 / お好みのクラス", note: "仲間と一緒に楽しみながら全身を動かす" },
+      { activity: "クールダウンストレッチ", spec: "10分",              note: "レッスン後に体をほぐし、心地よく締めくくる" }
+    ],
+    programs: [
+      { name: "ZUMBA®",          area: "STUDIO", description: "ラテンミュージックに合わせて踊る、賑やかなダンスフィットネス" },
+      { name: "ボールルームダンス入門", area: "STUDIO", description: "ペアで楽しむ社交ダンスの入門クラス。初心者大歓迎" },
+      { name: "ダンスエアロ",     area: "STUDIO", description: "ダンスの動きを取り入れた、楽しいエアロビクスレッスン" }
     ]
   },
   balance: {
@@ -68,9 +83,14 @@ const TYPES = {
       "カルチャークラス"
     ],
     routine: [
-      { lesson: "ファンエアロ",      area: "STUDIO", duration: "約60分", note: "楽しみながら、ちょうどよく体を動かす" },
-      { lesson: "アクア＆ウォーク", area: "AQUA",   duration: "約45分", note: "水中で体を動かし、心地よく整える" },
-      { lesson: "ヨガ",             area: "STUDIO", duration: "約60分", note: "ストレッチで体をほぐし、一日を丁寧に締めくくる" }
+      { activity: "ウォーキング",    spec: "20分 / トレッドミル 時速5〜6km", note: "無理のないペースで有酸素運動のベースを作る" },
+      { activity: "軽い筋トレ",      spec: "各マシン 15回×2セット",         note: "主要な筋群をバランスよく、フォームを意識しながら" },
+      { activity: "ヨガ・ストレッチ", spec: "15〜20分",                     note: "体全体をほぐし、バランスを整えて締めくくる" }
+    ],
+    programs: [
+      { name: "ファンエアロ",    area: "STUDIO", description: "楽しいリズムに乗って適度な有酸素運動が楽しめる入門クラス" },
+      { name: "アクア＆ウォーク", area: "AQUA",  description: "水中ウォーキングで全身運動。膝に優しく続けやすい" },
+      { name: "ヨガ",           area: "STUDIO", description: "体の柔軟性と筋力をバランスよく養う、週の締めくくりに最適" }
     ]
   },
   maintenance: {
@@ -79,16 +99,21 @@ const TYPES = {
     tagline: "いつもの自分を、丁寧に手入れする",
     description: "自分のリズムを大切にし、長く健やかに過ごしたいあなたへ。日々のささやかな積み重ねが、もっとも美しい習慣になります。",
     facilities: [
-      "ジム(ゆるやかに)",
+      "ジム（ゆるやかに）",
       "太極拳",
       "ストレッチクラス",
       "プールでのウォーキング",
       "ラウンジでの休息"
     ],
     routine: [
-      { lesson: "気功・太極拳",      area: "DO-JO",  duration: "約60分", note: "ゆったりとした動きで、体のバランスを整える" },
-      { lesson: "アクア＆ウォーク", area: "AQUA",   duration: "約45分", note: "プールをゆっくり歩いて、体に優しく負荷をかける" },
-      { lesson: "まったりストレッチ", area: "STUDIO", duration: "約45分", note: "丁寧なストレッチで、体を優しくケアして締めくくる" }
+      { activity: "準備体操",        spec: "10分",            note: "関節を丁寧に動かし、無理なく体を目覚めさせる" },
+      { activity: "プールウォーキング", spec: "20〜30分 / マイペースで", note: "水の抵抗を利用して、体に優しく負荷をかける" },
+      { activity: "整理体操・ストレッチ", spec: "15分",        note: "使った部位を丁寧にほぐし、体のメンテナンスを完成させる" }
+    ],
+    programs: [
+      { name: "気功・太極拳",   area: "DO-JO",  description: "ゆったりとした動きで気の流れを整える、心身の調和を促すクラス" },
+      { name: "アクア＆ウォーク", area: "AQUA", description: "プールを歩くだけ。水中で優しく全身を動かすシンプルなレッスン" },
+      { name: "まったりストレッチ", area: "STUDIO", description: "全身を無理なくほぐす、ゆったりペースのストレッチクラス" }
     ]
   },
   water: {
@@ -104,9 +129,14 @@ const TYPES = {
       "プールサイドでのひととき"
     ],
     routine: [
-      { lesson: "アクア＆ウォーク",    area: "AQUA", duration: "約45分", note: "水中ウォーキングで体を温め、気持ちよくスタート" },
-      { lesson: "アクアビクス",        area: "AQUA", duration: "約45分", note: "水の抵抗を活かして、全身を心地よく動かす" },
-      { lesson: "昼スイム（初中級）",   area: "AQUA", duration: "約45分", note: "泳ぎの楽しさとともに、爽快にフィニッシュ" }
+      { activity: "水中ウォームアップ",    spec: "10分 / ゆっくりウォーキング",   note: "プールに入り体を慣らしながら、準備を整える" },
+      { activity: "水泳",               spec: "400m（クロールまたは平泳ぎ）", note: "100mごとに30秒休憩。自分のペースで泳ぐ" },
+      { activity: "プールサイドストレッチ", spec: "10分",                     note: "水から上がった後、全身をゆっくり伸ばしてクールダウン" }
+    ],
+    programs: [
+      { name: "アクアビクス",       area: "AQUA", description: "水中で音楽に合わせて体を動かす、楽しいアクアエクササイズ" },
+      { name: "昼スイム（初中級）", area: "AQUA", description: "インストラクターとともに泳ぐスイムレッスン。初中級者向け" },
+      { name: "アクアシェイプ",     area: "AQUA", description: "水の抵抗を活かして体を引き締めるアクアフィットネス" }
     ]
   }
 };

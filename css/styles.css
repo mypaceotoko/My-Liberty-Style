@@ -386,12 +386,50 @@ body {
   padding: 14px 18px;
 }
 
-.routine-header {
+.routine-activity {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  font-family: var(--serif);
+  letter-spacing: 0.02em;
+  margin-bottom: 4px;
+}
+
+.routine-spec {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+  letter-spacing: 0.02em;
+  margin-bottom: 6px;
+}
+
+.routine-note {
+  font-size: 15px;
+  color: var(--text-soft);
+  line-height: 1.65;
+}
+
+/* ==== Programs ==== */
+.program-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.program-item {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 18px;
+}
+
+.program-header {
   display: flex;
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .routine-area {
@@ -409,7 +447,7 @@ body {
 .area-aqua   { background: rgba(52, 120, 175, 0.10); color: #2d6fa3; }
 .area-lounge { background: rgba(160, 130, 60, 0.10); color: #8a6e1a; }
 
-.routine-lesson {
+.program-name {
   font-size: 18px;
   font-weight: 600;
   color: var(--text);
@@ -417,14 +455,7 @@ body {
   letter-spacing: 0.02em;
 }
 
-.routine-duration {
-  font-size: 14px;
-  color: var(--text-soft);
-  margin-left: auto;
-  white-space: nowrap;
-}
-
-.routine-note {
+.program-desc {
   font-size: 15px;
   color: var(--text-soft);
   line-height: 1.65;
@@ -446,12 +477,12 @@ body {
   .result-card { padding: 44px 22px; }
   .type-name { font-size: 28px; }
   .type-description { font-size: 16px; }
-  .facility-list li, .today-list li { font-size: 17px; }
-  .today-pick { padding: 22px 22px; }
+  .facility-list li { font-size: 17px; }
 
-  .routine-lesson { font-size: 17px; }
+  .routine-activity { font-size: 17px; }
   .routine-body { padding: 12px 14px; }
-  .routine-duration { margin-left: 0; }
+  .program-item { padding: 14px 14px; }
+  .program-name { font-size: 17px; }
 }
 
 /* ==== Print (スタッフ提示用) ==== */
