@@ -79,6 +79,7 @@ function renderQuestion() {
     btn.addEventListener("click", () => {
       const i = Number(btn.dataset.index);
       state.answers[idx] = q.options[i];
+      btn.blur();
       if (idx < total - 1) {
         state.currentIndex++;
         render();
