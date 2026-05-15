@@ -77,10 +77,10 @@ const QUESTIONS = [
     id: 8,
     text: "今日まず、やってみたい気分は？",
     options: [
-      { label: "プールでひと泳ぎ",             scores: { water: 2 },                todayPick: "プールでゆったりひと泳ぎ" },
-      { label: "ヨガで深呼吸",                 scores: { relax: 2 },                todayPick: "ヨガクラスで、深く呼吸を整える" },
-      { label: "ジムで軽く体を動かす",         scores: { balance: 2, active: 1 },   todayPick: "ジムで、軽めのウォームアップから" },
-      { label: "ラウンジで優雅にお茶",         scores: { social: 2, relax: 1 },     todayPick: "ラウンジで、温かい一杯を楽しむ" }
+      { label: "プールでひと泳ぎ",     scores: { water: 2 } },
+      { label: "ヨガで深呼吸",         scores: { relax: 2 } },
+      { label: "ジムで軽く体を動かす", scores: { balance: 2, active: 1 } },
+      { label: "ラウンジで優雅にお茶", scores: { social: 2, relax: 1 } }
     ]
   }
 ];

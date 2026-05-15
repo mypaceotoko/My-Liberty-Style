@@ -17,11 +17,6 @@ const TYPES = {
       { lesson: "簡単チェアヨガ",   area: "DO-JO",  duration: "約45分", note: "座ったまま無理なく。体をゆっくりとほぐすところから始めましょう" },
       { lesson: "リラックスヨガ",   area: "STUDIO", duration: "約60分", note: "深い呼吸とともに、心の緊張を静かにほどいていきます" },
       { lesson: "アクア＆ウォーク", area: "AQUA",   duration: "約45分", note: "水の温もりに身をゆだね、一日を優しく締めくくる" }
-    ],
-    todayPicks: [
-      "朝のヨガで、一日を静かに始める",
-      "タッチスパで、丁寧にほぐれる",
-      "ラウンジで、温かい一杯を"
     ]
   },
   active: {
@@ -40,11 +35,6 @@ const TYPES = {
       { lesson: "ボディメイキング60",   area: "STUDIO", duration: "約60分", note: "全身をしっかり動かして、体を目覚めさせる" },
       { lesson: "GroupFight",          area: "DO-JO",  duration: "約60分", note: "パンチ＆キックで、気持ちよく全力を出し切る" },
       { lesson: "アクティブストレッチ", area: "STUDIO", duration: "約60分", note: "クールダウンしながら、しなやかな体を仕上げる" }
-    ],
-    todayPicks: [
-      "ジムで、集中してひと汗",
-      "ボクシングレッスンで、リズムよく",
-      "テニスコートで、伸びやかに一本"
     ]
   },
   social: {
@@ -63,11 +53,6 @@ const TYPES = {
       { lesson: "ZUMBA®",             area: "STUDIO", duration: "約60分", note: "仲間と一緒に、ラテンのリズムで体を弾ませる" },
       { lesson: "ボールルームダンス入門", area: "STUDIO", duration: "約60分", note: "ペアで楽しむ、優雅なダンスの時間" },
       { lesson: "ラウンジでのひととき", area: "ラウンジ", duration: null,   note: "レッスン後は、仲間とゆっくり歓談を" }
-    ],
-    todayPicks: [
-      "ラウンジで、会員仲間と歓談",
-      "カルチャークラスを、まずは体験",
-      "レストランで、季節のひと皿を"
     ]
   },
   balance: {
@@ -86,11 +71,6 @@ const TYPES = {
       { lesson: "ファンエアロ",      area: "STUDIO", duration: "約60分", note: "楽しみながら、ちょうどよく体を動かす" },
       { lesson: "アクア＆ウォーク", area: "AQUA",   duration: "約45分", note: "水中で体を動かし、心地よく整える" },
       { lesson: "ヨガ",             area: "STUDIO", duration: "約60分", note: "ストレッチで体をほぐし、一日を丁寧に締めくくる" }
-    ],
-    todayPicks: [
-      "ジムを、軽くひと巡り",
-      "アクアレッスンに、爽やかに参加",
-      "ヨガで、しなやかにクールダウン"
     ]
   },
   maintenance: {
@@ -109,11 +89,6 @@ const TYPES = {
       { lesson: "気功・太極拳",      area: "DO-JO",  duration: "約60分", note: "ゆったりとした動きで、体のバランスを整える" },
       { lesson: "アクア＆ウォーク", area: "AQUA",   duration: "約45分", note: "プールをゆっくり歩いて、体に優しく負荷をかける" },
       { lesson: "まったりストレッチ", area: "STUDIO", duration: "約45分", note: "丁寧なストレッチで、体を優しくケアして締めくくる" }
-    ],
-    todayPicks: [
-      "太極拳で、ゆっくり体を整える",
-      "プールを、歩いて巡る",
-      "ラウンジで、ひと休み"
     ]
   },
   water: {
@@ -132,11 +107,6 @@ const TYPES = {
       { lesson: "アクア＆ウォーク",    area: "AQUA", duration: "約45分", note: "水中ウォーキングで体を温め、気持ちよくスタート" },
       { lesson: "アクアビクス",        area: "AQUA", duration: "約45分", note: "水の抵抗を活かして、全身を心地よく動かす" },
       { lesson: "昼スイム（初中級）",   area: "AQUA", duration: "約45分", note: "泳ぎの楽しさとともに、爽快にフィニッシュ" }
-    ],
-    todayPicks: [
-      "プールで、ゆっくり泳ぐ",
-      "アクアレッスンで、軽やかに",
-      "スパで、体をいたわる"
     ]
   }
 };
@@ -147,7 +117,6 @@ const TIE_BREAK_ORDER = ["balance", "relax", "social", "water", "maintenance", "
 
 function diagnose(answers) {
   const scores = { relax: 0, active: 0, social: 0, balance: 0, maintenance: 0, water: 0 };
-  let todayPick = null;
 
   answers.forEach((option) => {
     if (!option) return;
@@ -157,7 +126,6 @@ function diagnose(answers) {
         scores[typeId] += opScores[typeId];
       }
     });
-    if (option.todayPick) todayPick = option.todayPick;
   });
 
   let resultId = TIE_BREAK_ORDER[0];
@@ -169,9 +137,5 @@ function diagnose(answers) {
     }
   });
 
-  return {
-    type: TYPES[resultId],
-    scores,
-    todayPick
-  };
+  return { type: TYPES[resultId], scores };
 }

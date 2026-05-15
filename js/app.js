@@ -133,11 +133,6 @@ function renderResult() {
   const result = diagnose(state.answers);
   const type = result.type;
 
-  // 質問8で選んだ「今日のおすすめ」を先頭に。重複は除く。
-  const todayList = result.todayPick
-    ? [result.todayPick, ...type.todayPicks.filter((t) => t !== result.todayPick)].slice(0, 3)
-    : type.todayPicks.slice(0, 3);
-
   root.innerHTML = `
     <section class="screen result">
       <div class="result-card">
@@ -159,13 +154,6 @@ function renderResult() {
           <ol class="routine-list">
             ${type.routine.map((step, i) => renderRoutineStep(step, i)).join("")}
           </ol>
-        </div>
-
-        <div class="today-pick">
-          <h3 class="section-title">今日のおすすめ</h3>
-          <ul class="today-list">
-            ${todayList.map((t, i) => `<li class="${i === 0 ? "highlight" : ""}">${escapeHtml(t)}</li>`).join("")}
-          </ul>
         </div>
 
         <button class="primary-button" id="restartBtn" type="button">もう一度診断する</button>
