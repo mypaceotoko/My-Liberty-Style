@@ -204,6 +204,18 @@ body {
   }
 }
 
+.option-button:active {
+  transform: scale(0.99);
+  background: var(--primary-soft);
+}
+
+.option-button.selected {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-weight: 600;
+}
+
 .q-footer {
   margin-top: 24px;
   min-height: 48px;

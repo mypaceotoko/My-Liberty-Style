@@ -75,19 +75,27 @@ function renderQuestion() {
     </section>
   `;
 
-  root.querySelectorAll(".option-button").forEach((btn) => {
+  const buttons = root.querySelectorAll(".option-button");
+  let locked = false;
+  buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
+      if (locked) return;
+      locked = true;
       const i = Number(btn.dataset.index);
       state.answers[idx] = q.options[i];
+      buttons.forEach((b) => b.classList.remove("selected"));
+      btn.classList.add("selected");
       btn.blur();
-      if (idx < total - 1) {
-        state.currentIndex++;
-        render();
-      } else {
-        state.screen = "result";
-        render();
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
+      setTimeout(() => {
+        if (idx < total - 1) {
+          state.currentIndex++;
+          render();
+        } else {
+          state.screen = "result";
+          render();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      }, 280);
     });
   });
 
