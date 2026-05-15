@@ -27,7 +27,10 @@ function renderIntro() {
   root.innerHTML = `
     <section class="screen intro">
       <div class="intro-card">
-        <p class="brand-mark">LIBERTY HILL CLUB</p>
+        <div class="brand-mark" aria-label="LIBERTYHILL CLUB">
+          <span class="brand-symbol" aria-hidden="true">&#x2112;</span>
+          <span class="brand-name">LIBERTYHILL CLUB</span>
+        </div>
         <h1 class="title">My Liberty Style</h1>
         <p class="lead">あなたに合った、<br>クラブでの過ごし方を<br>ご提案いたします。</p>
         <p class="sub">8つのご質問に、ゆっくりとお答えください。</p>

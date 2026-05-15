@@ -72,12 +72,31 @@ body {
 }
 
 .brand-mark {
-  font-family: var(--serif);
-  letter-spacing: 0.32em;
-  color: var(--accent);
-  font-size: 13px;
-  margin-bottom: 24px;
-  padding-left: 0.32em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.brand-symbol {
+  font-family: 'Times New Roman', 'Georgia', 'Garamond', serif;
+  font-style: italic;
+  font-size: 46px;
+  color: #1C3B5A;
+  line-height: 1;
+  flex-shrink: 0;
+  display: block;
+}
+
+.brand-name {
+  font-family: var(--sans);
+  letter-spacing: 0.26em;
+  padding-left: 0.26em;
+  color: #1C3B5A;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .title {
